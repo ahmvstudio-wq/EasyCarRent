@@ -304,6 +304,7 @@ a {
 
 .stats-row {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     margin-top: 40px;
     border-top: 1px solid var(--border);
@@ -608,11 +609,13 @@ a {
 
 .image-collage {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .hover-zoom {
-    width: calc(50% - 10px);
+    flex: 1 1 calc(50% - 20px);
+    min-width: 140px;
     border-radius: 12px;
     object-fit: cover;
     height: 180px;
@@ -813,9 +816,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .title-reveal { font-size: 3.5rem; }
+    .title-reveal { font-size: 2.8rem; }
     .hero-buttons { flex-direction: column; width: 100%; align-items: stretch; }
     .hero-buttons a { text-align: center; justify-content: center; }
+    
+    .stats-row { gap: 20px; }
+    .stat-item h4 { font-size: 1.5rem; }
     
     .nav-links { 
         display: none; 
