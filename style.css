@@ -17,6 +17,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 90%; /* Reduces global scale slightly to create a 'zoomed out' feel */
+}
+
 body {
     font-family: var(--font-main);
     background-color: var(--bg-color);
@@ -69,7 +73,7 @@ a {
 }
 
 .container {
-    max-width: 1280px;
+    max-width: 1440px; /* Increased to allow content to spread out more */
     margin: 0 auto;
     padding: 0 5%;
 }
@@ -276,7 +280,7 @@ a {
 
 /* Split Layouts */
 .layout-split {
-    padding: 120px 0;
+    padding: 100px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
@@ -321,7 +325,7 @@ a {
 
 .img-wrapper {
     width: 100%;
-    height: 650px;
+    height: 550px;
     border-radius: 16px;
     overflow: hidden;
 }
@@ -408,7 +412,7 @@ a {
 
 /* Fleet Grid */
 .fleet {
-    padding: 120px 0;
+    padding: 100px 0;
     background: var(--surface);
 }
 
@@ -556,7 +560,7 @@ a {
 
 /* Reserve Section */
 .reserve {
-    padding: 120px 0;
+    padding: 100px 0;
     background: #ffffff;
 }
 
@@ -697,7 +701,7 @@ a {
 footer {
     background: #0f172a; 
     color: #f8fafc; 
-    padding: 100px 0 40px;
+    padding: 80px 0 30px;
 }
 
 .footer-content {
