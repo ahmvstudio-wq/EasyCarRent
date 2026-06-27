@@ -1,5 +1,39 @@
 // Simple, robust JavaScript for a professional site
 
+// --- Language Switcher Logic ---
+let currentLang = localStorage.getItem('easycar_lang') || 'en';
+
+function applyTranslations(lang) {
+    if (!translations || !translations[lang]) return;
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+
+    // Update active state on buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.trim().toLowerCase() === (lang === 'en' ? 'en' : 'ge')) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+function switchLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('easycar_lang', lang);
+    applyTranslations(lang);
+}
+
+// Apply on load
+document.addEventListener('DOMContentLoaded', () => {
+    applyTranslations(currentLang);
+});
+
+
 // Initial Hero Animation
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -28,7 +62,7 @@ if(mobileToggle) {
     });
 }
 
-// Close mobile menu on link click
+// Close mobile menu on link click (exclude lang switcher)
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         if(navLinksContainer.classList.contains('active')) {
@@ -87,11 +121,11 @@ if (form) {
         const btn = form.querySelector('.btn-submit span');
         const originalText = btn.textContent;
         
-        btn.textContent = 'Processing...';
+        btn.textContent = currentLang === 'ka' ? 'მუშავდება...' : 'Processing...';
         
         // Simulate network request
         setTimeout(() => {
-            btn.textContent = 'Request Sent Successfully!';
+            btn.textContent = currentLang === 'ka' ? 'მოთხოვნა გაიგზავნა!' : 'Request Sent Successfully!';
             form.querySelector('.btn-submit').style.backgroundColor = '#25D366';
             form.reset();
             

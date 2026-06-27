@@ -139,6 +139,36 @@ a {
     opacity: 0.6;
 }
 
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.navbar.scrolled .lang-switcher {
+    color: var(--text-primary);
+}
+
+.lang-btn {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-btn:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.lang-btn.active {
+    opacity: 1;
+    color: var(--accent);
+    font-weight: 700;
+}
+
 .btn-outline {
     border: 1px solid rgba(255,255,255,0.5);
     padding: 0.75rem 1.8rem;
@@ -856,6 +886,13 @@ footer {
         background: var(--text-primary);
         color: #ffffff !important;
         border-radius: 50px;
+    }
+    
+    .lang-switcher {
+        color: var(--text-primary);
+        margin: 15px 0;
+        justify-content: center;
+        font-size: 1.15rem;
     }
     
     .mobile-toggle { display: block; }
